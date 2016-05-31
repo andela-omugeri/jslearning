@@ -11,11 +11,12 @@ async.waterfall([
 
 			//if things go wrong
 			if (err) {
+				
 				return toGetUrl(err);
 			}
-
 			// if everything is okay call the next function with the data gotten from the file
 			toGetUrl(null, data);
+
 		});
 
 	},
@@ -45,7 +46,7 @@ async.waterfall([
 	function toDisplay(err, content){
 		//if there is an error
 		if(err){
-			console.log(err);
+			return console.log(err);
 		}
 		//print out the contents at the url.
 		console.log(content);
